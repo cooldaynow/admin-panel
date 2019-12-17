@@ -4,9 +4,13 @@
       rel="stylesheet"
       href="<%=htmlWebpackPlugin.files.chunks.main.css %>"
     />
+    <meta charset="UTF-8" />
+    <title>Hello React!</title>
   </head>
   <body>
-    <div>Hello, world!</div>
+    <div id="root" />
+    <script src="./node_modules/react/umd/react.development.js"></script>
+    <script src="./node_modules/react-dom/umd/react-dom.development.js"></script>
 
     <script src="<%= htmlWebpackPlugin.files.chunks.main.entry %>"></script>
   </body>

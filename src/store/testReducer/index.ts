@@ -1,4 +1,4 @@
-const initialState = {
+const initialState: any = {
   test: false
 };
 const testReducer = (state = initialState, action: any): any => {

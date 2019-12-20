@@ -34,7 +34,10 @@ module.exports = {
           "style-loader",
           {
             loader: "css-loader",
-            options: { modules: true, importLoaders: 1 }
+            options: {
+              modules: true,
+              importLoaders: 1
+            }
           },
           "postcss-loader"
         ],
@@ -71,6 +74,7 @@ module.exports = {
       }
     ]
   },
+
   externals: {
     react: "React",
     "react-dom": "ReactDOM"

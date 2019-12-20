@@ -1,0 +1,15 @@
+
+.block {
+  display: grid;
+  justify-items: center;
+  min-height: 100vh;
+  align-items: center;
+}
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.transition {
+  animation: rotate 6s linear infinite;
+}

@@ -1,12 +1,11 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 
 import { Provider } from "react-redux";
-import { createStore, compose } from "redux";
-import App from "./containers/App";
+import { createStore } from "redux";
 import { reducer } from "./store/reducer";
+import App from "./containers/App";
 
 const store = createStore(reducer);
 

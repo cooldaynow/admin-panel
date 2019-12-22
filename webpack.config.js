@@ -10,7 +10,7 @@ module.exports = {
     filename: "index_bundle.js"
   },
   resolve: {
-    extensions: [".ts", ".tsx", ".js"],
+    extensions: [".ts", ".tsx", ".js", ".less"],
     modules: ["src", "node_modules"]
   },
   devServer: {
@@ -53,24 +53,20 @@ module.exports = {
             loader: "css-loader"
           },
           {
-            loader: "less-loader"
+            loader: "less-loader",
+            options: { javascriptEnabled: true }
           }
         ]
       },
       {
-        test: /\.(ts|tsx)$/,
+        test: /\.ts(x?)$/,
+        exclude: /node_modules/,
+        use: ["babel-loader", "ts-loader"]
+      },
+      {
         enforce: "pre",
-        use: [
-          {
-            options: {
-              eslintPath: require.resolve("eslint")
-            },
-            // loader: require.resolve("eslint-loader")
-
-            loader: "awesome-typescript-loader"
-          }
-        ],
-        exclude: /node_modules/
+        test: /\.js$/,
+        loader: "source-map-loader"
       }
     ]
   },

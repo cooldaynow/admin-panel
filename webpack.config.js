@@ -20,18 +20,15 @@ module.exports = {
     rules: [
       {
         test: /\.css$/,
+        exclude: /node_modules/,
         use: [
           "style-loader",
           {
             loader: "css-loader",
-            options: {
-              modules: true,
-              importLoaders: 1
-            }
+            options: { importLoaders: 1, modules: true }
           },
           "postcss-loader"
-        ],
-        exclude: /node_modules/
+        ]
       },
       {
         test: /\.less$/,

@@ -1,6 +1,6 @@
-import { ITestState } from './testReducer/i';
+import { TUsersCollection } from '../entities/user';
 
-interface IState {
-  testReducer: ITestState;
-}
-export default IState;
+type TState = {
+  users: TUsersCollection;
+};
+export default TState;

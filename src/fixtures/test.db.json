@@ -5,6 +5,30 @@
     { "id": 3, "title": "three", "author": "typicode" },
     { "id": 4, "title": "four", "author": "typicode" }
   ],
-  "comments": [{ "id": 1, "body": "some comment", "postId": 1 }],
-  "profile": { "name": "typicode" }
+  "users": [
+    {
+      "id": 1,
+      "sex": "male",
+      "age": 18,
+      "email": "aacheb@fake.com",
+      "name": "Alex",
+      "surname": "Cheb"
+    },
+    {
+      "id": 2,
+      "sex": "male",
+      "age": 38,
+      "email": "aacheb@fake.com",
+      "name": "John",
+      "surname": "Conor"
+    },
+    {
+      "id": 3,
+      "sex": "female",
+      "age": 17,
+      "email": "aaheb@fake.com",
+      "name": "Juli",
+      "surname": "Blow"
+    }
+  ]
 }

@@ -11,11 +11,7 @@ export type TUser = {
 
 export type TUserCollection = TUser[];
 
-export type TUsersAction = {
-  type: string;
-  payload: any;
-};
 export type TUsersInitialState = {
-  data: any;
-  error: any;
+  data: TUserCollection;
+  error: Error | null;
 };

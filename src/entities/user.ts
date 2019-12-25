@@ -1,9 +1,3 @@
-export enum UsersTypes {
-  FETCH_USERS = '@users/FETCH',
-  FETCH_USERS_SUCCESS = '@users/FETCH_SUCCESS',
-  FETCH_USERS_FAILURE = '@users/FETCH_FAILURE'
-}
-
 export type TUserName = string;
 export type TUserId = number;
 
@@ -12,13 +6,16 @@ export type TUser = {
   id: TUserId;
   email: string;
   age: number;
-  sex: string;
+  gender: string;
 };
-export type TUsersCollection = {
-  users?: TUser[];
-  error: boolean;
-};
+
+export type TUserCollection = TUser[];
+
 export type TUsersAction = {
   type: string;
-  payload?: TUser[];
+  payload: any;
+};
+export type TUsersInitialState = {
+  data: any;
+  error: any;
 };

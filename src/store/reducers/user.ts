@@ -8,7 +8,7 @@ const initialState: TUsersInitialState = {
   error: null
 };
 
-const usersReducer = createReducer<any>(initialState, {
+const usersReducer = createReducer<TUsersInitialState>(initialState, {
   [getType(fetchUsers.success)]: (state, { payload }) =>
     update(state, { $merge: { data: payload, error: null } }),
 

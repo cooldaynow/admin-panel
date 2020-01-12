@@ -5,7 +5,7 @@ import styles from './index.css';
 
 type TAppProps = {
   users: TUser[];
-  showUsers: (users: TUser[]) => () => void;
+  showUsers(users: TUser[]): () => void;
 };
 
 const App = ({ users, showUsers }: TAppProps) => {

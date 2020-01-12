@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
-import { Button } from 'antd';
 import { connect } from 'react-redux';
 import { Action } from 'redux';
 import TState from '../../store/i';
 import { fetchUsers } from '../../store/actions/user';
 import { TUser } from '../../entities/user';
 import { getUsersArray } from '../../selectors/user';
-import styles from '../../components/App/index.css';
 import App from '../../components/App';
 
 type TAppProps = {
@@ -31,7 +29,7 @@ class AppContainer extends Component<TAppProps> {
 
   render() {
     const { users } = this.props;
-    console.log('App render', { users });
+    console.log('App container render', { users });
     return <App users={users} showUsers={this.showUsers} />;
   }
 }

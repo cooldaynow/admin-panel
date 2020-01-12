@@ -4,11 +4,11 @@ import { TUsersInitialState } from '../../entities/user';
 import { fetchUsers } from '../actions/user';
 
 const initialState: TUsersInitialState = {
-  data: [],
+  data: { entities: { users: {} }, result: [] },
   error: null
 };
 
-const usersReducer = createReducer<TUsersInitialState>(initialState, {
+const usersReducer = createReducer<any>(initialState, {
   [getType(fetchUsers.success)]: (state, { payload }) =>
     update(state, { $merge: { data: payload, error: null } }),
 

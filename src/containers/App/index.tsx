@@ -1,51 +1,46 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Button } from 'antd';
 import { connect } from 'react-redux';
-import { Action, Dispatch } from 'redux';
+import { Action } from 'redux';
 import TState from '../../store/i';
 import { fetchUsers } from '../../store/actions/user';
-import { TUserCollection } from '../../entities/user';
-import styles from './index.css';
+import { TUser } from '../../entities/user';
+import { getUsersArray } from '../../selectors/user';
+import styles from '../../components/App/index.css';
+import App from '../../components/App';
 
 type TAppProps = {
-  users: TUserCollection;
+  users: TUser[];
   getUsers: () => Action;
 };
 
-class App extends React.Component<TAppProps> {
+class AppContainer extends Component<TAppProps> {
   state = {
     info: 'users'
+  };
+
+  showUsers = (users: TUser[]) => (): void => {
+    const { info } = this.state;
+    console.log(users, info);
   };
 
   componentDidMount(): void {
     const { getUsers } = this.props;
     getUsers();
   }
-  showUsers = (users: TUserCollection) => (): void => {
-    const { info } = this.state;
-    console.log(users, info);
-  };
 
   render() {
     const { users } = this.props;
-    return (
-      <div className={styles.wrapper}>
-        <div className={styles.block}>
-          <h1 className={styles.transition}>Hello World!</h1>
-          <span>This is test redux-saga dispatch :)</span>
-          <Button size='large' type='primary' onClick={this.showUsers(users)}>
-            Fetch users !
-          </Button>
-        </div>
-      </div>
-    );
+    console.log('App render', { users });
+    return <App users={users} showUsers={this.showUsers} />;
   }
 }
 
 const mapStateToProps = (state: TState) => ({
-  users: state.usersReducer.data
+  users: getUsersArray(state)
 });
-const mapDispatchToProps = (dispatch: Dispatch) => ({
-  getUsers: () => dispatch(fetchUsers.request())
-});
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+
+const mapDispatchToProps = {
+  getUsers: fetchUsers.request
+};
+export default connect(mapStateToProps, mapDispatchToProps)(AppContainer);

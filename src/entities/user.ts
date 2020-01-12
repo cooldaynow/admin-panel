@@ -1,3 +1,5 @@
+import { EntityCollection } from '../utils/entity';
+
 export type TUserName = string;
 export type TUserId = number;
 
@@ -9,9 +11,18 @@ export type TUser = {
   gender: string;
 };
 
-export type TUserCollection = TUser[];
+export type TUserCollection = EntityCollection<TUser>;
+
+export type TUsersState = {
+  users: TUserCollection;
+};
+
+type TUserData = {
+  entities: TUsersState;
+  result: TUserId[];
+};
 
 export type TUsersInitialState = {
-  data: TUserCollection;
+  data: TUserData;
   error: Error | null;
 };

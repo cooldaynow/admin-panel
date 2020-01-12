@@ -8,7 +8,7 @@
   "users": [
     {
       "id": 1,
-      "sex": "male",
+      "gender": "male",
       "age": 18,
       "email": "aacheb@fake.com",
       "name": "Alex",
@@ -16,7 +16,7 @@
     },
     {
       "id": 2,
-      "sex": "male",
+      "gender": "male",
       "age": 38,
       "email": "aacheb@fake.com",
       "name": "John",
@@ -24,7 +24,7 @@
     },
     {
       "id": 3,
-      "sex": "female",
+      "gender": "female",
       "age": 17,
       "email": "aaheb@fake.com",
       "name": "Juli",

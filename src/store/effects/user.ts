@@ -1,16 +1,16 @@
-import network from '../../network';
+import newtwork from 'network';
 import { put, takeEvery } from 'redux-saga/effects';
-import { fetchUsersFailure, fetchUsersSuccess } from '../actions/user';
-import { UsersTypes as UT } from '../../entities/user';
+import { fetchUsers } from '../actions/user';
+import { normalizeUsers } from '../../resources/user';
 
 function* fetchUsersAsync() {
   try {
-    const users = yield network.getUsers();
-    yield put(fetchUsersSuccess(users));
+    const users = yield newtwork.getUsers();
+    yield put(fetchUsers.success(normalizeUsers(users)));
   } catch (error) {
-    yield put(fetchUsersFailure());
+    yield put(fetchUsers.failure(error));
   }
 }
 export function* watchFetchUsers() {
-  yield takeEvery(UT.FETCH_USERS, fetchUsersAsync);
+  yield takeEvery(fetchUsers.request, fetchUsersAsync);
 }

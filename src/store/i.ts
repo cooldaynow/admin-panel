@@ -1,6 +1,6 @@
-import { TUsersCollection } from '../entities/user';
+import { TUsersInitialState } from 'entities/user';
 
 type TState = {
-  users: TUsersCollection;
+  usersReducer: TUsersInitialState;
 };
 export default TState;

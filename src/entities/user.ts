@@ -1,8 +1,4 @@
-export enum UsersTypes {
-  FETCH_USERS = '@users/FETCH',
-  FETCH_USERS_SUCCESS = '@users/FETCH_SUCCESS',
-  FETCH_USERS_FAILURE = '@users/FETCH_FAILURE'
-}
+import { EntityCollection } from '../utils/entity';
 
 export type TUserName = string;
 export type TUserId = number;
@@ -12,13 +8,21 @@ export type TUser = {
   id: TUserId;
   email: string;
   age: number;
-  sex: string;
+  gender: string;
 };
-export type TUsersCollection = {
-  users?: TUser[];
-  error: boolean;
+
+export type TUserCollection = EntityCollection<TUser>;
+
+export type TUsersState = {
+  users: TUserCollection;
 };
-export type TUsersAction = {
-  type: string;
-  payload?: TUser[];
+
+type TUserData = {
+  entities: TUsersState;
+  result: TUserId[];
+};
+
+export type TUsersInitialState = {
+  data: TUserData;
+  error: Error | null;
 };

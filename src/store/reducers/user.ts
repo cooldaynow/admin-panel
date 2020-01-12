@@ -1,27 +1,18 @@
-import {
-  UsersTypes as UT,
-  TUsersAction,
-  TUsersCollection
-} from '../../entities/user';
+import { createReducer, getType } from 'typesafe-actions';
+import update from 'immutability-helper';
+import { TUsersInitialState } from '../../entities/user';
+import { fetchUsers } from '../actions/user';
 
-const initialState: TUsersCollection = {
-  users: [],
-  error: false
+const initialState: TUsersInitialState = {
+  data: { entities: { users: {} }, result: [] },
+  error: null
 };
-const users = (state = initialState, action: TUsersAction) => {
-  switch (action.type) {
-    case UT.FETCH_USERS_SUCCESS:
-      return {
-        error: false,
-        users: action.payload
-      };
-    case UT.FETCH_USERS_FAILURE:
-      return {
-        ...state,
-        error: true
-      };
-    default:
-      return state;
-  }
-};
-export default users;
+
+const usersReducer = createReducer<TUsersInitialState>(initialState, {
+  [getType(fetchUsers.success)]: (state, { payload }) =>
+    update(state, { $merge: { data: payload, error: null } }),
+
+  [getType(fetchUsers.failure)]: (state, { payload }) =>
+    update(state, { $merge: { error: payload } })
+});
+export default usersReducer;

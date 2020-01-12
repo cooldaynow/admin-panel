@@ -1,5 +1,5 @@
 import { normalize, NormalizedSchema, schema } from 'normalizr';
-import { TUser, TUserId, TUsersState } from '../entities/user';
+import { TUser, TUserId, TUsersState } from 'entities/user';
 
 export const normalizeUsers = (
   users: TUser[]

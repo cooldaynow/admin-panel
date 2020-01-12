@@ -1,7 +1,7 @@
 import newtwork from 'network';
 import { put, takeEvery } from 'redux-saga/effects';
-import { fetchUsers } from '../actions/user';
-import { normalizeUsers } from '../../resources/user';
+import { fetchUsers } from 'store/actions/user';
+import { normalizeUsers } from 'resources/user';
 
 function* fetchUsersAsync() {
   try {

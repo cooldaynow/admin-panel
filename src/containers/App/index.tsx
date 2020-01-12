@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Action } from 'redux';
-import TState from '../../store/i';
-import { fetchUsers } from '../../store/actions/user';
-import { TUser } from '../../entities/user';
-import { getUsersArray } from '../../selectors/user';
-import App from '../../components/App';
+import { TUser } from 'entities/user';
+import TState from 'store/i';
+import { fetchUsers } from 'store/actions/user';
+import { getUsersArray } from 'selectors/user';
+import App from 'components/App';
 
 type TAppProps = {
   users: TUser[];

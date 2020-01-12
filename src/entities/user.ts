@@ -1,4 +1,4 @@
-import { EntityCollection } from '../utils/entity';
+import { EntityCollection } from 'utils/entity';
 
 export type TUserName = string;
 export type TUserId = number;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from 'antd';
-import { TUser } from '../../entities/user';
+import { TUser } from 'entities/user';
 import styles from './index.css';
 
 type TAppProps = {

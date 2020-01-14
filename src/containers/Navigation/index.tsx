@@ -2,14 +2,15 @@ import React from 'react';
 import { Icon, Button, PageHeader, Modal } from 'antd';
 import WrappedSignIn from '../SignIn';
 import styles from './index.less';
+import { connect } from 'react-redux';
+import { setCloseLogin } from '../../store/actions/ui';
+import TState from '../../store/i';
 
-class Navigation extends React.Component {
+class Navigation extends React.Component<any> {
   private formRef: any;
 
   showModal = () => {
-    this.setState({
-      isVisible: true
-    });
+    this.props.closeModal();
   };
   handleOk = () => {
     const { form } = this.formRef.props;
@@ -41,11 +42,11 @@ class Navigation extends React.Component {
         <Modal
           title='Sign in'
           // visible={isVisible}
-          visible
+          visible={this.props.isShowLogin}
           onOk={this.handleOk}
-          okText={'Sign in'}
+          okText='Sign in'
           // confirmLoading={isLoading}
-          // onCancel={this.handleCancel}
+          onCancel={this.showModal}
           closable={false}
         >
           <div style={{ display: 'flex', justifyContent: 'center' }}>
@@ -56,4 +57,10 @@ class Navigation extends React.Component {
     );
   }
 }
-export default Navigation;
+const mapStateToProps = (state: TState) => ({
+  isShowLogin: state.ui.modal.isShowLogin
+});
+const mapDispatchToProps = {
+  closeModal: setCloseLogin
+};
+export default connect(mapStateToProps, mapDispatchToProps)(Navigation);

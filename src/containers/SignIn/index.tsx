@@ -3,9 +3,7 @@ import { Form, Icon, Input } from 'antd';
 import { FormComponentProps } from 'antd/es/form';
 import styles from './index.less';
 
-type ISignInProps = { form: any } & FormComponentProps;
-
-class SignIn extends React.Component<ISignInProps> {
+class SignIn extends React.Component<FormComponentProps> {
   render() {
     const { getFieldDecorator } = this.props.form;
     return (
@@ -36,6 +34,6 @@ class SignIn extends React.Component<ISignInProps> {
   }
 }
 
-export default Form.create<ISignInProps>({
+export default Form.create<FormComponentProps>({
   name: 'normal_login'
 })(SignIn);

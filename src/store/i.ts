@@ -1,6 +1,8 @@
 import { TUsersInitialState } from 'entities/user';
+import { TUi } from '../entities/ui';
 
 type TState = {
-  usersReducer: TUsersInitialState;
+  users: TUsersInitialState;
+  ui: TUi;
 };
 export default TState;

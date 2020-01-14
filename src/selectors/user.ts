@@ -1,9 +1,8 @@
-import { createSelector } from 'reselect';
 import TState from 'store/i';
+import { createSelector } from 'reselect';
 import { TUserCollection } from 'entities/user';
 
-export const getUsers = (state: TState) =>
-  state.usersReducer.data.entities.users;
+export const getUsers = (state: TState) => state.users.data.entities.users;
 
 export const getUsersArray = createSelector(
   getUsers,

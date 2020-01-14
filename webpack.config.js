@@ -32,16 +32,35 @@ module.exports = {
       },
       {
         test: /\.less$/,
-        use: [
+        oneOf: [
           {
-            loader: 'style-loader'
+            exclude: /antd/,
+            use: [
+              'style-loader',
+              'css-loader?modules',
+              {
+                loader: 'less-loader',
+                options: { javascriptEnabled: true }
+              }
+            ]
           },
           {
-            loader: 'css-loader'
-          },
-          {
-            loader: 'less-loader',
-            options: { javascriptEnabled: true }
+            include: /antd/,
+            use: [
+              'style-loader',
+              'css-loader',
+              {
+                loader: 'postcss-loader',
+                options: {
+                  ident: 'postcss',
+                  plugins: () => [require('postcss-flexbugs-fixes')]
+                }
+              },
+              {
+                loader: 'less-loader',
+                options: { javascriptEnabled: true }
+              }
+            ]
           }
         ]
       },

@@ -1,0 +1,29 @@
+.layout {
+  min-height: 100vh;
+  .header {
+    height: auto;
+    padding: 0;
+    background-color: transparent;
+  }
+}
+
+.content {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  min-height: calc(100vh - 69px - 112px);
+  .block {
+    display: grid;
+    text-align: center;
+    grid-gap: 50px;
+  }
+  .transition {
+    animation: rotate 6s linear infinite;
+  }
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
